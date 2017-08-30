@@ -1,18 +1,13 @@
-<% provide(:title, "Home") %>
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-sm-2">
-      <ul>
-        <li><a href="">小川山</a></li>
-        <li><a href="">瑞牆</a></li>
-        <li><a href="">豊田</a></li>
-        <li><a href="">恵那</a></li>
-      </ul>
-    </div>
-    <div class="col-sm-10">
+<% provide(:title, "home") %>
+    <div class="center jumbotron">
       <div id="map">
+        <script
+          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBkB8SBcLs-OAhv2Vi7LmnNYQNxVntZtzc&callback=initMap" async defer>
+        </script>
         <script>
           function initMap() {
+            // 地図を挿入したい要素を取得
+            var canvas = document.getElementById( 'map' ) ;
             var uluru = {lat: 35.908787, lng: 138.640131};
             var map = new google.maps.Map(document.getElementById('map'), {
               zoom: 16,
@@ -23,11 +18,10 @@
               map: map
             });
           }
-        </script>
-        <script async defer
-          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBkB8SBcLs-OAhv2Vi7LmnNYQNxVntZtzc&callback=initMap">
+          //ウィンドウをリサイズしたら再度読み込み
+          google.maps.event.addDomListener(window, 'resize', function(){
+            map.panTo(latlng);//地図のインスタンス([map]) 
+          });
         </script>
       </div>
     </div>
-  </div>
-</div>

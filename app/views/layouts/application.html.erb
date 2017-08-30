@@ -1,15 +1,34 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%=yield(:title)%> | ClimbingMovieMap</title>
+    <title><%= full_title(yield(:title)) %></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <!--[if lt IE 9]>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js">
+      </script>
+    <![endif]-->
   </head>
-
   <body>
-    <h1>Climbing Movie Maps</h1>
-    <%= yield %>
+    <header class="navbar navbar-inverse">
+      <div class="container">
+        <nav>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="">小川山</a></li>
+            <li><a href="">瑞牆</a></li>
+            <li><a href="">豊田</a></li>
+            <li><a href="">恵那</a></li>
+          </ul>
+        </nav>
+      </dev>
+    </header>
+    <div class="container">
+      <%= yield %>
+    </dev>
   </body>
+  
+  
 </html>
